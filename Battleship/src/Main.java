@@ -149,7 +149,6 @@ public class Main {
             check = false;
             System.out.println("COMPUTER TURN");
             while(!check){
-                System.out.println("COMPUTER TURN");
                 int x = random.nextInt(10);
                 int y = random.nextInt(10);
                 check = checkGuessed(compGuess, x, y);

@@ -1,55 +1,68 @@
 public class Fraction {
     private int numerator, denominator;
-    public Fraction(int num, int denom){
+
+    public Fraction(int num, int denom) {
         numerator = num;
         denominator = denom;
-        if(denominator == 0){
+        if (denominator == 0) {
             throw new IllegalArgumentException("Denominator cannot be zero");
         }
-        if(denominator < 0){
+        if (denominator < 0) {
             denominator *= -1;
             numerator *= -1;
         }
     }
-    public Fraction(int num){
+
+    public Fraction(int num) {
         numerator = num;
         denominator = 1;
     }
-    public Fraction (){
+
+    public Fraction() {
         numerator = 0;
         denominator = 1;
     }
 
 
-    public int getNumerator(){
+    public int getNumerator() {
         return numerator;
     }
-    public int getDenominator(){
-        return  denominator;
+
+    public int getDenominator() {
+        return denominator;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
+        if (denominator == 1) {
+            return numerator + "";
+        }
         return numerator + "/" + denominator;
     }
-    public double toDouble(){
-        return (double)numerator / denominator;
+
+    public double toDouble() {
+        return (double) numerator / denominator;
     }
-    public Fraction add(Fraction other){
+
+    public Fraction add(Fraction other) {
         int num = numerator * other.denominator + other.numerator * denominator;
         int denom = denominator * other.denominator;
         return new Fraction(num, denom);
     }
-    public Fraction subtract(Fraction other){
+
+    public Fraction subtract(Fraction other) {
         int num = numerator * other.denominator - other.numerator * denominator;
         int denom = denominator * other.denominator;
-        return new Fraction(num, denom);    }
-    public Fraction multiply(Fraction other){
+        return new Fraction(num, denom);
+    }
+
+    public Fraction multiply(Fraction other) {
         int num = numerator * other.numerator;
         int denom = denominator * other.denominator;
         return new Fraction(num, denom);
     }
-    public Fraction divide(Fraction other){
+
+    public Fraction divide(Fraction other) {
         int num = numerator * other.denominator;
         int denom = denominator * other.numerator;
         return new Fraction(num, denom);
@@ -57,30 +70,31 @@ public class Fraction {
 
     @Override
     public boolean equals(Object other) {
-        if(other instanceof Fraction) {
+        if (other instanceof Fraction) {
             this.toLowestTerms();
             ((Fraction) other).toLowestTerms();
             return numerator == ((Fraction) other).numerator && denominator == ((Fraction) other).denominator;
         } else {
-            return  false;
+            return false;
         }
     }
-    public void toLowestTerms(){
-        int GCD = gcd(numerator, denominator);
+
+    public void toLowestTerms() {
+        int GCD = gcd(Math.abs(numerator), Math.abs(denominator)); //prevent a negative number cause a exception
         numerator /= GCD;
         denominator /= GCD;
     }
-    public int gcd(int num, int denom){
-        if(num == 0 || denom == 0){
+
+    public int gcd(int num, int denom) {
+        if (num == 0 || denom == 0) {
             return Math.max(num, denom);
-        }else {
-            if(num == denom){
+        } else {
+            if (num == denom) {
                 return num;
-            }
-            else if (num > denom){
-                return gcd(num% denom, denom);
+            } else if (num > denom) {
+                return gcd(num % denom, denom);
             } else {
-                return  gcd(num, denom %num);
+                return gcd(num, denom % num);
             }
 
         }

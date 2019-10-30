@@ -38,7 +38,7 @@ public class TechnicalLead extends TechnicalEmployee implements I_Managment, I_T
 
     @Override
     public boolean approveCheckIn(SoftwareEngineer e) {
-        return e.getManager().equals(this) && e.getCodeAccess();
+        return e.getCodeAccess() && e.getManager().equals(this);
     }
 
     @Override

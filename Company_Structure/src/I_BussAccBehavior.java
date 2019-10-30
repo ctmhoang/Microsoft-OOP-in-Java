@@ -1,3 +1,4 @@
 public interface I_BussAccBehavior {
-    BusinessEmployee setManager(BusinessLead manager);
+    void setManager(BusinessLead manager);
+    void upCasting(BusinessLead manager);
 }

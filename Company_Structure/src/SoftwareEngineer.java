@@ -1,6 +1,6 @@
 public class SoftwareEngineer extends TechnicalEmployee implements I_SEBehavior {
-    protected boolean access;
-    public TechnicalLead manager;
+    private boolean access;
+    private TechnicalLead manager;
 
     SoftwareEngineer(String name) {
         super(name);
@@ -9,17 +9,23 @@ public class SoftwareEngineer extends TechnicalEmployee implements I_SEBehavior 
     @Override
     public void setManager(TechnicalLead manager) {
         this.manager = manager;
+        upCasting(manager);
     }
 
-    public boolean getCodeAccess() {
+    @Override
+    public void upCasting(TechnicalLead manager) {
+        super.setManager(manager);
+    }
+
+    boolean getCodeAccess() {
         return access;
     }
 
-    public void setCodeAccess(boolean access) {
+    void setCodeAccess(boolean access) {
         this.access = access;
     }
 
-    public int getSuccessfulCheckIns() {
+    int getSuccessfulCheckIns() {
         return checkIns;
     }
 
@@ -30,6 +36,7 @@ public class SoftwareEngineer extends TechnicalEmployee implements I_SEBehavior 
         }
         return false;
     }
+
 
 
 }

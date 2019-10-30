@@ -3,7 +3,7 @@ public abstract class Employee {
     private String name;
     protected double baseSalary;
     private static int EmployeeID;
-    private Employee manager;
+    protected Employee manager;
     protected double bonus;
     public Employee(String name, double baseSalary){
         this.name = name;

@@ -8,7 +8,8 @@ public class Main {
         CTO.addReport(seB);
         CTO.addReport(seC);
         seC.setCodeAccess(true);
-        System.out.println(seC.access + " " + seC.CheckInCode());
+        System.out.println(seC.getManager().toString());
+        System.out.println(seC.getCodeAccess() + " " + seC.CheckInCode());
         System.out.println(CTO.getTeamStatus());
 
         TechnicalLead VPofENG = new TechnicalLead("Bill Gates");

@@ -10,8 +10,14 @@ public class Accountant extends BusinessEmployee implements I_BussAccBehavior {
     }
 
     @Override
-    public BusinessEmployee setManager(BusinessLead manager) {
-        return this.manager = manager;
+    public void setManager(BusinessLead manager) {
+        this.manager = manager;
+        upCasting(manager);
+    }
+
+    @Override
+    public void upCasting(BusinessLead manager) {
+        super.setManager(manager);
     }
 
     public void supportTeam(TechnicalLead lead){

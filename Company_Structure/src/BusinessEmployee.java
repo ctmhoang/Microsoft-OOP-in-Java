@@ -1,9 +1,8 @@
 public class BusinessEmployee extends Employee {
-    private static final int DEFAULT_BASE_SALARY = 50000;
     protected double bonusBudget;
 
     public BusinessEmployee(String name){
-        super(name, DEFAULT_BASE_SALARY);
+        super(name,50000);
     }
 
     public double getBonusBudget(){
@@ -12,6 +11,6 @@ public class BusinessEmployee extends Employee {
 
     @Override
     String employeeStatus() {
-        return getEmployeeID() + " " + getName() + " with a budget of" + Math.round(getBonusBudget() * 10) / 10;
+        return getEmployeeID() + " " + getName() + " with a budget of " + Math.round(getBonusBudget() * 10) / 10;
     }
 }

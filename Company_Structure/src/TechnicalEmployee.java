@@ -1,10 +1,9 @@
 public class TechnicalEmployee extends Employee
 {
     protected int checkIns;
-    private static final int DEFAULT_BASE_SALARY = 75000;
 
     public TechnicalEmployee(String name){
-        super(name, DEFAULT_BASE_SALARY);
+        super(name, 75000);
     }
     @Override
     String employeeStatus() {
